@@ -1,0 +1,22 @@
+version: "3.2"
+
+services:
+  database:
+    image: mysql
+    environment:
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+      MYSQL_DATABASE: sample
+      MYSQL_ROOT_PASSWORD: supersecret
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - bucket
+
+volumes:
+  dbdata:
+
+networks:
+  bucket:
